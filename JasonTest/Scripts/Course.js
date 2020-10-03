@@ -21,7 +21,7 @@ function GetEmployeeRecord() {
           // BindDataTable(response);
             var sdata;
             $.each(response, function (k, v) {
-                sdata += "<tr><td>" + v.CourseName + "</td><td>" + v.CourseCredit + "</td><td>" + "<a href='#' id='AddEditEmployee(" + v.CourseId + ")'>Edit</a>"+ "</td></tr>";
+                sdata += "<tr><td>" + v.CourseName + "</td><td>" + v.CourseCredit + "</td><td>" + "<a href='EditCourse/"+ v.CourseId +"'>Edit</a>"+ "</td></tr>";
 
                
                

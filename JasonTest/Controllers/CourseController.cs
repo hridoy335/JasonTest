@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using JasonTest.Models;
@@ -10,19 +12,40 @@ namespace JasonTest.Controllers
     public class CourseController : Controller
     {
         Models.StudentEntities db = new StudentEntities();
-        // GET: Course
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
-
+     
+     
         public ActionResult CourseList()
         {
             return View();
         }
-        public ActionResult CourseListAll()
+        
+
+        [HttpGet]
+        public ActionResult EditCourse(int? id) 
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Course course = db.Courses.Find(id);
+            if (course==null)
+            {
+                return HttpNotFound();
+            }
+            return View(course);
+        }
+
+        [HttpPost]
+        public ActionResult EditCourse(Course course)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(course).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("CourseList");
+            }
+            return View(course);
         }
         public JsonResult GetEmployeeRecord()
         {

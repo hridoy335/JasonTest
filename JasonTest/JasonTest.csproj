@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StudentInfoesController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -225,6 +226,12 @@
     <Content Include="Views\Home\list.cshtml" />
     <Content Include="Views\Course\CourseList.cshtml" />
     <Content Include="Views\Course\CourseListAll.cshtml" />
+    <Content Include="Views\Course\EditCourse.cshtml" />
+    <Content Include="Views\StudentInfoes\Create.cshtml" />
+    <Content Include="Views\StudentInfoes\Delete.cshtml" />
+    <Content Include="Views\StudentInfoes\Details.cshtml" />
+    <Content Include="Views\StudentInfoes\Edit.cshtml" />
+    <Content Include="Views\StudentInfoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
