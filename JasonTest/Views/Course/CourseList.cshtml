@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "CourseList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CourseList</h2>
+
+<div class="panel panel-body" style="min-height:256px">
+
+
+
+        @*<div class="well">
+            <a href="#" class="btn btn-primary" onclick="AddEditEmployee(0)">New</a>
+        </div>*@
+        <table class="display" id="MyDataTable">
+            <thead>
+                <tr>
+                    <th>
+                        CourseName
+                    </th>
+                    <th>
+                        CourseCredit
+                    </th>
+                    
+
+
+                </tr>
+            </thead>
+
+            <tbody></tbody>
+
+        </table>
+        @*<div class="modal fade" id="myModal1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a href="#" class="close" data-dismiss="modal">&times;</a>
+                        <h3 class="modal-title">AddEdit Employee</h3>
+                    </div>
+                    <div class="modal-body" id="myModalBodyDiv1">
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <input type="hidden" id="hiddenEmployeeId" />*@
+    
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/Course.js"></script>
+}

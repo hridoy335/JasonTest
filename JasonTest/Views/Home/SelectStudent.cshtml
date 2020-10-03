@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "SelectStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Student List</h2>
+<table id="Studenttable" class="table">
+    <thead>
+        <tr>
+            <th>StudentName</th>
+            <th>Role</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+</table>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+<script src="~/Scripts/StudentSelect.js"></script>
+}

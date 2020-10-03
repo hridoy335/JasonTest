@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "TeacherSelect";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>TeacherSelect</h2>
+@*<input type="button" value="Save" class="btn btn-default" id="getTeacher()" onclick="getTeacher()" />*@
+
+<table id="teachertable" class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+
+        </tr>
+    </thead>
+
+</table>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    <script src="~/Scripts/TeacherSelect.js"></script>
+
+}
