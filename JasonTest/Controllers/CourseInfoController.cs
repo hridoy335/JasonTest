@@ -13,26 +13,21 @@ namespace JasonTest.Controllers
 
         // GET: CourseInfo
 
-        //public ActionResult Index()
-        //{
-        //    MVCTutorialEntities db = new MVCTutorialEntities();
+        public ActionResult index()
+        {
 
-        //    List<Department> list = db.Departments.ToList();
-        //    ViewBag.DepartmentList = new SelectList(list, "DepartmentId", "DepartmentName");
-
-        //    List<EmployeeViewModel> listEmp = db.Employees.Where(x => x.IsDeleted == false).Select(x => new EmployeeViewModel { Name = x.Name, DepartmentName = x.Department.DepartmentName, Address = x.Address, EmployeeId = x.EmployeeId }).ToList();
-
-        //    ViewBag.EmployeeList = listEmp;
-
-        //    return View();
-        //}
+            return View();
+        }
 
         public ActionResult SideMenu()
         {
             return PartialView("SideMenu");
         }
 
-     
+        public ActionResult Partial1()
+        {
+            return PartialView("Partial1");
+        }
 
         public JsonResult GetEmployeeRecord()
         {
@@ -111,6 +106,20 @@ namespace JasonTest.Controllers
             return PartialView("Partial2", course);
         }
 
+        public ActionResult AddCourseInfo()
+        {
+            return PartialView("Partial1");
+        }
 
+        public JsonResult CoueseCreate(Course course)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Courses.Add(course);
+                db.SaveChanges();
+                return Json("Insert successfull");
+            }
+            return Json("Not Insert");
+        }
     }
 }

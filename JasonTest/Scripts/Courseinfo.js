@@ -53,3 +53,55 @@ function AddEditCourse(employeeId) {
     })
 
 }
+
+function AddCourse() {
+    var url = "../CourseInfo/AddCourseInfo"
+
+    $("#myModalBodyDiv").load(url, function () {
+        $("#myModal").modal("show");
+    })
+
+}
+
+function addCourse() {
+//  var myformdata = $("#myForm").serialize();
+
+    var name = $("#Name").val();
+    var credit = $("#Credit").val();
+    console.log(JSON.stringify(name));
+
+
+    $.ajax({
+        type: "POST",
+        url: "../CourseInfo/CoueseCreate",
+        data: {
+            CourseName: name,
+            CourseCredit: credit
+           
+        },
+        success: function (data) {
+            alert("Insert Teacher Data ...");
+            $("#loaderDiv").hide();
+            $("#myModal").modal("hide");
+            window.location.href = "/CourseInfo/index";
+        }
+
+
+    });
+
+    //$.ajax({
+
+    //    type: "POST",
+    //    url: "/CourseInfo/CoueseCreate",
+    //    data: myformdata,
+    //    success: function () {
+    //        $("#loaderDiv").hide();
+    //        $("#myModal").modal("hide");
+    //        window.location.href = "/CourseInfo/index";
+
+    //    }
+
+    //})
+
+
+}

@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>index</h2>
+<div class="col-md-9">
+
+    <div class="well">
+        <a href="#" class="btn btn-primary" onclick="AddCourse()">New Course</a>
+        @*<a href="#" class="btn btn-primary" onclick="AddEditEmployee(0)">New</a>*@
+    </div>
+
+    @*<div class="well">
+
+           @{  Html.RenderAction("Partial1");}
+
+        </div>*@
+    <table class="display" id="MyDataTable">
+        <thead>
+            <tr>
+                <th>
+                    CourseName
+                </th>
+                <th>
+                    CourseCredit
+                </th>
+                <th>
+                    CourseId
+                </th>
+            </tr>
+        </thead>
+
+        <tbody></tbody>
+
+    </table>
+
+
+    @*<div class="modal fade" id="myModal1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a href="#" class="close" data-dismiss="modal">&times;</a>
+                        <h3 class="modal-title">AddEdit Employee</h3>
+                    </div>
+                    <div class="modal-body" id="myModalBodyDiv">
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>*@
+
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                    <h3 class="modal-title">Add New Course</h3>
+                </div>
+                <div class="modal-body" id="myModalBodyDiv">
+
+
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <input type="hidden" id="hiddenEmployeeId" />
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @*@Scripts.Render("~/bundles/js")*@
+    <script src="~/Scripts/DataTable/jquery.dataTables.js"></script>
+    <link href="~/Content/DataTable/css/jquery.dataTables.css" rel="stylesheet" />
+    <script src="~/Scripts/Courseinfo.js"></script>
+
+}
