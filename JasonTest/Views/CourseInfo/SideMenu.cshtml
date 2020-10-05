@@ -1,7 +1,54 @@
-﻿
+﻿@model JasonTest.Models.Course
+
 @{
-    ViewBag.Title = "SideMenu";
-    Layout = "~/Views/Shared/_LayoutPage123.cshtml";
+    Layout = null;
 }
 
-<h2>SideMenu</h2>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SideMenu</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.CourseId, new { @id = "CourseID" })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CourseName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.CourseName, new { @id = "Name" })
+                    @Html.ValidationMessageFor(model => model.CourseName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CourseCredit, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.CourseCredit, new { @id = "Credit" })
+                    @Html.ValidationMessageFor(model => model.CourseCredit, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="Update" class="btn btn-default" id="UpdateCourseInfo()" onclick="UpdateCourseInfo()" />
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @*@Scripts.Render("~/bundles/js")*@
+    <script src="~/Scripts/Courseinfo.js"></script>
+
+}

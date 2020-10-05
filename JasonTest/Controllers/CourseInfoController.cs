@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -111,11 +112,40 @@ namespace JasonTest.Controllers
             return PartialView("Partial1");
         }
 
+        [HttpPost]
         public JsonResult CoueseCreate(Course course)
         {
+          
             if (ModelState.IsValid)
             {
                 db.Courses.Add(course);
+                db.SaveChanges();
+                return Json("Insert successfull");
+            }
+            return Json("Not Insert");
+        }
+
+        public ActionResult EditCourse(int? CourseId)
+        {
+            if (CourseId == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            Course course = db.Courses.Find(CourseId);
+            if (course==null)
+            {
+                return HttpNotFound();
+            }
+           
+            return PartialView("SideMenu",course);
+        }
+
+        [HttpPost]
+        public JsonResult EditCourse([Bind(Include = "CourseId,CourseName,Role,CourseCredit")] Course course)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(course).State = EntityState.Modified;
                 db.SaveChanges();
                 return Json("Insert successfull");
             }

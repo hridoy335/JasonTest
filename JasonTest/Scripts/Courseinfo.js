@@ -68,7 +68,8 @@ function addCourse() {
 
     var name = $("#Name").val();
     var credit = $("#Credit").val();
-    console.log(JSON.stringify(name));
+    //console.log(JSON.stringify(name));
+    //console.log(JSON.stringify(credit));
 
 
     $.ajax({
@@ -80,7 +81,7 @@ function addCourse() {
            
         },
         success: function (data) {
-            alert("Insert Teacher Data ...");
+            alert("Insert Course Data ...");
             $("#loaderDiv").hide();
             $("#myModal").modal("hide");
             window.location.href = "/CourseInfo/index";
@@ -104,4 +105,42 @@ function addCourse() {
     //})
 
 
+}
+
+function AddEditCourse(CourseId) {
+    var url = "../CourseInfo/EditCourse?CourseId=" + CourseId;
+
+    $("#myModalBodyDiv2").load(url, function () {
+        $("#myModal1").modal("show");
+
+    })
+
+}
+
+function UpdateCourseInfo() {
+    var id = $("#CourseID").val();
+    var name = $("#Name").val();
+    var credit = $("#Credit").val();
+    
+
+    console.log(JSON.stringify(id));
+    console.log(JSON.stringify(name));
+    console.log(JSON.stringify(credit));
+
+    $.ajax({
+        type: "POST",
+        url: "../CourseInfo/EditCourse",
+        data: {
+            CourseId: id,
+            CourseName: name,
+            CourseCredit: credit
+
+        },
+        success: function (data) {
+            alert("Update Course Data ...");
+            $("#loaderDiv").hide();
+            $("#myModal").modal("hide");
+            window.location.href = "/CourseInfo/index";
+        }
+    })
 }
