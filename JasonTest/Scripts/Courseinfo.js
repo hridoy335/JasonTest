@@ -4,6 +4,7 @@
     GetEmployeeRecord();
 });
 
+// Load course information in this datatable
 function GetEmployeeRecord () {
 
     $.ajax({
@@ -18,7 +19,6 @@ function GetEmployeeRecord () {
     })
 
 }
-
 
 function BindDataTable(response) {
 
@@ -37,7 +37,13 @@ function BindDataTable(response) {
                     return '<a href="#" onclick="AddEditCourse(' + CourseId + ')"><i class="glyphicon glyphicon-pencil"></i></a>'
                 }
             },
-          
+           {
+                "mData": "CourseId",
+                "render": function (CourseId, type, full, meta) {
+                    //debugger
+                    return '<a href="#" onclick="DeleteCourse(' + CourseId + ')"><i class="glyphicon glyphicon-trash"></i></a>'
+                }
+            },
         ]
 
     });
@@ -53,7 +59,7 @@ function AddEditCourse(employeeId) {
     })
 
 }
-
+//Add new Course 
 function AddCourse() {
     var url = "../CourseInfo/AddCourseInfo"
 
@@ -107,6 +113,7 @@ function addCourse() {
 
 }
 
+//Edit Course
 function AddEditCourse(CourseId) {
     var url = "../CourseInfo/EditCourse?CourseId=" + CourseId;
 
@@ -143,4 +150,34 @@ function UpdateCourseInfo() {
             window.location.href = "/CourseInfo/index";
         }
     })
+}
+
+
+// Delete Course 
+function DeleteCourse(CourseId) {
+    var url = "../CourseInfo/DeleteCourse?CourseId="+CourseId;
+    //var url = "../CourseInfo/DeleteCourse?CourseId=" + CourseId;
+    $("#myModalBodyDiv23").load(url, function () {
+        $("#myModal12").modal("show");
+    })
+}
+
+function DeleteCourseInfo() {
+    var id = $("#CourseID").val();
+    console.log(JSON.stringify(id));
+
+    $.ajax({
+        type: "POST",
+        url: "../CourseInfo/DeleteCourse",
+        data: {
+            CourseId: id
+        },
+        success: function (data) {
+            alert("Delete Course Data....");
+            $("#loaderDiv").hide();
+            $("#myModal12").modal("hide");
+            window.location.href = "/CourseInfo/index";
+        }
+
+    });
 }

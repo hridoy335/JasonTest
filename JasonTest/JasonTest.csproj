@@ -220,6 +220,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
     <Content Include="Content\DataTable\images\Sorting icons.psd" />
+    <Content Include="libman.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Course.js" />
     <Content Include="Scripts\Courseinfo.js" />
@@ -293,9 +294,11 @@
     <Content Include="Views\CourseInfo\index.cshtml" />
     <Content Include="Views\CourseInfo\Partial1.cshtml" />
     <Content Include="Views\CourseInfo\SideMenu.cshtml" />
+    <Content Include="Views\CourseInfo\DeletePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="lib\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

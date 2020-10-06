@@ -107,6 +107,7 @@ namespace JasonTest.Controllers
             return PartialView("Partial2", course);
         }
 
+        // Add new course
         public ActionResult AddCourseInfo()
         {
             return PartialView("Partial1");
@@ -125,6 +126,8 @@ namespace JasonTest.Controllers
             return Json("Not Insert");
         }
 
+        //Edit Course
+        [HttpGet]
         public ActionResult EditCourse(int? CourseId)
         {
             if (CourseId == null)
@@ -150,6 +153,41 @@ namespace JasonTest.Controllers
                 return Json("Insert successfull");
             }
             return Json("Not Insert");
+        }
+
+        // Delete Course 
+        [HttpGet]
+        public ActionResult DeleteCourse(int? CourseId)
+        {
+            if (CourseId == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            Course course = db.Courses.Find(CourseId);
+            if (course == null)
+            {
+                return HttpNotFound();
+            }
+
+             return PartialView("DeletePartial", course);
+           // return View();
+        }
+        public ActionResult DeletePartial()
+        {
+            return PartialView("DeletePartial");
+        }
+
+        [HttpPost]
+        public ActionResult DeleteCourse(int? CourseId, Course course)
+        {
+            if (CourseId != null)
+            {
+                Course course1 = db.Courses.Find(CourseId);
+                db.Courses.Remove(course1);
+                db.SaveChanges();
+                return Json("Delete successfull");
+            }
+            return Json("System can.t delete this Data");
         }
     }
 }

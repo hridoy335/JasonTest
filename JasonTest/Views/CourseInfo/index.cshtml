@@ -21,13 +21,16 @@
         <thead>
             <tr>
                 <th>
-                    CourseName
+                    Course Name
                 </th>
                 <th>
-                    CourseCredit
+                    Course Credit
                 </th>
                 <th>
-                    CourseId
+                    Course Edit
+                </th>
+                <th>
+                    Course Delete
                 </th>
             </tr>
         </thead>
@@ -36,25 +39,25 @@
 
     </table>
 
-    @*// Call edit course modal*@ 
+    @*// Call edit course modal*@
     <div class="modal fade" id="myModal1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <a href="#" class="close" data-dismiss="modal">&times;</a>
-                        <h3 class="modal-title">Edit Course info</h3>
-                    </div>
-                    <div class="modal-body" id="myModalBodyDiv2">
-
-
-                    </div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                    <h3 class="modal-title">Edit Course info</h3>
+                </div>
+                <div class="modal-body" id="myModalBodyDiv2">
 
 
                 </div>
 
+
             </div>
 
         </div>
+
+    </div>
 
     @*// call add new course modal*@
     <div class="modal fade" id="myModal">
@@ -79,7 +82,25 @@
 
     </div>
 
-    @*<input type="hidden" id="hiddenEmployeeId" />*@
+    @*// call Delete course modal*@
+    <div class="modal fade" id="myModal12">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                    <h3 class="modal-title">Delete Course info</h3>
+                </div>
+                <div class="modal-body" id="myModalBodyDiv23">
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
 </div>
 
 @section Scripts {
