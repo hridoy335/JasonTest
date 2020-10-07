@@ -200,6 +200,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="lib\jquery\jquery.js" />
+    <Content Include="lib\jquery\jquery.min.js" />
+    <Content Include="lib\jquery\jquery.slim.js" />
+    <Content Include="lib\jquery\jquery.slim.min.js" />
     <Content Include="Models\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model.Context.cs</LastGenOutput>
@@ -221,6 +225,8 @@
     </Content>
     <Content Include="Content\DataTable\images\Sorting icons.psd" />
     <Content Include="libman.json" />
+    <Content Include="lib\jquery\jquery.min.map" />
+    <Content Include="lib\jquery\jquery.slim.min.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Course.js" />
     <Content Include="Scripts\Courseinfo.js" />
@@ -298,7 +304,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="lib\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
